@@ -41,6 +41,8 @@ namespace Toolbox
 		Vector3f(Float32 iValue);
 		Vector3f(const Vector3f& iOther);
 		
+        bool isValid() const;
+        
 		void clear();
 		void setCoordinates(Float32 iX, Float32 iY, Float32 iZ);
 		
@@ -109,6 +111,11 @@ namespace Toolbox
 		z = iZ;
 	}
 	
+    inline bool Vector3f::isValid() const
+    {
+        return !isnan(x) && !isnan(y) && !isnan(z);
+    }
+    
 	inline Float32 Vector3f::squareLength() const
 	{
 		return (x * x) + (y * y) + (z * z);		
