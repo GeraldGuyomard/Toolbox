@@ -69,6 +69,7 @@ namespace Toolbox
 	
 	// Global Operators
 	template <typename TScalar> TScalar operator*(const TVector2<TScalar>& iV1, const TVector2<TScalar>& iV2); // Dot Product
+    template <typename TScalar> TScalar determinant(const TVector2<TScalar>& iV1, const TVector2<TScalar>& iV2); // Determinant
 	template <typename TScalar> TVector2<TScalar> operator*(const TVector2<TScalar>& iV1, TScalar iScalar);
 	template <typename TScalar> TVector2<TScalar> operator/(const TVector2<TScalar>& iV1, TScalar iScalar);
 	
@@ -179,6 +180,11 @@ namespace Toolbox
 		return (iV1.x * iV2.x) + (iV1.y * iV2.y);
 	}
 	
+    template <typename TScalar> inline TScalar determinant(const TVector2<TScalar>& iV1, const TVector2<TScalar>& iV2)
+    {
+        return (iV1.x * iV2.y) - (iV1.y * iV2.x);
+    }
+    
 	template <typename TScalar> TVector2<TScalar> inline operator*(const TVector2<TScalar>& iV1, TScalar iScalar)
 	{
 		return TVector2<TScalar>(iV1.x * iScalar, iV1.y * iScalar);	
